@@ -1,30 +1,32 @@
 :root {
-  --text: #1a1a1a;
-  --text-muted: #5a5a5a;
-  --surface: rgba(255, 255, 255, 0.82);
-  --surface-border: rgba(255, 255, 255, 0.55);
-  --accent: #2d5a3d;
-  --max: 640px;
+  --text: rgba(255, 255, 255, 0.94);
+  --text-soft: rgba(255, 255, 255, 0.72);
+  --text-faint: rgba(255, 255, 255, 0.45);
+  --line: rgba(255, 255, 255, 0.18);
+  --max: 580px;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { font-size: 16px; scroll-behavior: smooth; }
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
 
 body {
   min-height: 100vh;
   font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
   color: var(--text);
-  line-height: 1.65;
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Forest background */
 .bg {
   position: fixed;
   inset: 0;
   z-index: -2;
-  background: url("../assets/background-forest.webp") center / cover no-repeat;
+  background: url("../assets/background-forest.webp") center / cover no-repeat fixed;
 }
 
 .bg::after {
@@ -32,101 +34,126 @@ body {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.55) 0%,
-    rgba(248, 250, 248, 0.72) 40%,
-    rgba(240, 245, 240, 0.85) 100%
+    165deg,
+    rgba(12, 22, 16, 0.52) 0%,
+    rgba(18, 30, 22, 0.62) 45%,
+    rgba(8, 14, 10, 0.75) 100%
   );
-  backdrop-filter: blur(1px);
 }
 
 .page {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 4rem 1.5rem 3rem;
-}
-
-.card {
-  background: var(--surface);
-  border: 1px solid var(--surface-border);
-  border-radius: 16px;
-  padding: 2.5rem 2rem;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  padding: 5rem 1.75rem 4rem;
 }
 
 .profile {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3.5rem;
 }
 
 .avatar {
-  width: 120px;
-  height: 120px;
+  width: 108px;
+  height: 108px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
-  border: 3px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1.5rem;
 }
 
 h1 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.35rem;
+  font-family: "Cormorant Garamond", "Georgia", serif;
+  font-size: 2.75rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+  color: #fff;
 }
 
 .tagline {
-  font-size: 0.95rem;
-  color: var(--text-muted);
+  font-size: 0.82rem;
   font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-soft);
 }
 
 .links {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5rem 1rem;
-  margin-top: 1.25rem;
-  font-size: 0.88rem;
+  gap: 0.35rem 1.25rem;
+  margin-top: 1.75rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .links a {
-  color: var(--accent);
+  color: var(--text-soft);
   text-decoration: none;
-  font-weight: 500;
+  transition: color 0.25s ease;
 }
 
-.links a:hover { text-decoration: underline; }
+.links a:hover {
+  color: #fff;
+}
 
-.links .sep { color: #ccc; user-select: none; }
+.links .sep {
+  color: var(--text-faint);
+  user-select: none;
+}
 
-section { margin-top: 2rem; }
+section {
+  margin-top: 2.75rem;
+  padding-top: 2.75rem;
+  border-top: 1px solid var(--line);
+}
+
+section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
 
 h2 {
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-family: "Cormorant Garamond", "Georgia", serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
+  color: var(--text-soft);
+  margin-bottom: 1.25rem;
 }
 
 p, li {
-  font-size: 0.95rem;
+  font-size: 0.94rem;
+  font-weight: 300;
   color: var(--text);
 }
 
-.about p { margin-bottom: 0.75rem; }
-
-.about a {
-  color: var(--accent);
-  text-decoration: none;
+.about p {
+  margin-bottom: 1rem;
 }
 
-.about a:hover { text-decoration: underline; }
+.about strong {
+  font-weight: 400;
+  color: #fff;
+}
+
+.about a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  transition: border-color 0.25s ease;
+}
+
+.about a:hover {
+  border-bottom-color: rgba(255, 255, 255, 0.8);
+}
 
 ul.interests {
   list-style: none;
@@ -134,62 +161,73 @@ ul.interests {
 }
 
 ul.interests li {
-  padding: 0.35rem 0;
-  color: var(--text-muted);
+  padding: 0.4rem 0;
+  color: var(--text-soft);
   font-size: 0.92rem;
-}
-
-ul.interests li::before {
-  content: "·";
-  margin-right: 0.5rem;
-  color: var(--accent);
-  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .project {
-  padding: 1rem 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
 }
 
-.project:first-of-type { border-top: none; padding-top: 0; }
+.project:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
 
 .project h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.35rem;
-}
-
-.project h3 a {
-  color: var(--text);
-  text-decoration: none;
-}
-
-.project h3 a:hover { color: var(--accent); }
-
-.project .cite {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  line-height: 1.5;
+  font-family: "Cormorant Garamond", "Georgia", serif;
+  font-size: 1.45rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
   margin-bottom: 0.5rem;
 }
 
-.project .links-inline a {
-  font-size: 0.85rem;
-  color: var(--accent);
+.project h3 a {
+  color: #fff;
   text-decoration: none;
-  margin-right: 1rem;
+  transition: opacity 0.25s ease;
 }
 
-.project .links-inline a:hover { text-decoration: underline; }
+.project h3 a:hover {
+  opacity: 0.75;
+}
+
+.project .cite {
+  font-size: 0.84rem;
+  color: var(--text-soft);
+  line-height: 1.65;
+  margin-bottom: 0.65rem;
+  font-style: italic;
+}
+
+.project .links-inline a {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  text-decoration: none;
+  margin-right: 1.25rem;
+  transition: color 0.25s ease;
+}
+
+.project .links-inline a:hover {
+  color: #fff;
+}
 
 footer {
   text-align: center;
-  margin-top: 2.5rem;
-  font-size: 0.78rem;
-  color: var(--text-muted);
+  margin-top: 4rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
 }
 
 @media (max-width: 480px) {
-  .page { padding: 2.5rem 1rem 2rem; }
-  .card { padding: 2rem 1.25rem; }
+  .page { padding: 3.5rem 1.25rem 3rem; }
+  h1 { font-size: 2.2rem; }
 }
