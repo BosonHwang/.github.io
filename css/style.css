@@ -1,8 +1,6 @@
 :root {
-  --text: rgba(255, 255, 255, 0.94);
-  --text-soft: rgba(255, 255, 255, 0.72);
-  --text-faint: rgba(255, 255, 255, 0.45);
-  --line: rgba(255, 255, 255, 0.18);
+  --white: #ffffff;
+  --line: rgba(255, 255, 255, 0.22);
   --max: 580px;
 }
 
@@ -17,28 +15,27 @@ body {
   min-height: 100vh;
   font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
   font-weight: 300;
-  color: var(--text);
+  color: var(--white);
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
 }
 
+/* Original forest photo, slightly deepened */
 .bg {
   position: fixed;
   inset: 0;
   z-index: -2;
   background: url("../assets/background-forest.webp") center / cover no-repeat fixed;
+  filter: brightness(0.58) saturate(1.08);
+  transform: scale(1.02);
 }
 
+/* Thin dark veil — no white wash */
 .bg::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    165deg,
-    rgba(12, 22, 16, 0.52) 0%,
-    rgba(18, 30, 22, 0.62) 45%,
-    rgba(8, 14, 10, 0.75) 100%
-  );
+  background: rgba(0, 0, 0, 0.28);
 }
 
 .page {
@@ -58,8 +55,8 @@ body {
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
   margin-bottom: 1.5rem;
 }
 
@@ -70,7 +67,7 @@ h1 {
   letter-spacing: 0.04em;
   line-height: 1.15;
   margin-bottom: 0.5rem;
-  color: #fff;
+  color: var(--white);
 }
 
 .tagline {
@@ -78,7 +75,7 @@ h1 {
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--text-soft);
+  color: var(--white);
 }
 
 .links {
@@ -93,17 +90,19 @@ h1 {
 }
 
 .links a {
-  color: var(--text-soft);
+  color: var(--white);
   text-decoration: none;
-  transition: color 0.25s ease;
+  opacity: 0.88;
+  transition: opacity 0.25s ease;
 }
 
 .links a:hover {
-  color: #fff;
+  opacity: 1;
 }
 
 .links .sep {
-  color: var(--text-faint);
+  color: var(--white);
+  opacity: 0.4;
   user-select: none;
 }
 
@@ -125,14 +124,14 @@ h2 {
   font-weight: 400;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-soft);
+  color: var(--white);
   margin-bottom: 1.25rem;
 }
 
 p, li {
   font-size: 0.94rem;
   font-weight: 300;
-  color: var(--text);
+  color: var(--white);
 }
 
 .about p {
@@ -141,18 +140,18 @@ p, li {
 
 .about strong {
   font-weight: 400;
-  color: #fff;
+  color: var(--white);
 }
 
 .about a {
-  color: #fff;
+  color: var(--white);
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
   transition: border-color 0.25s ease;
 }
 
 .about a:hover {
-  border-bottom-color: rgba(255, 255, 255, 0.8);
+  border-bottom-color: var(--white);
 }
 
 ul.interests {
@@ -162,7 +161,7 @@ ul.interests {
 
 ul.interests li {
   padding: 0.4rem 0;
-  color: var(--text-soft);
+  color: var(--white);
   font-size: 0.92rem;
   letter-spacing: 0.02em;
 }
@@ -186,21 +185,22 @@ ul.interests li {
 }
 
 .project h3 a {
-  color: #fff;
+  color: var(--white);
   text-decoration: none;
   transition: opacity 0.25s ease;
 }
 
 .project h3 a:hover {
-  opacity: 0.75;
+  opacity: 0.8;
 }
 
 .project .cite {
   font-size: 0.84rem;
-  color: var(--text-soft);
+  color: var(--white);
   line-height: 1.65;
   margin-bottom: 0.65rem;
   font-style: italic;
+  opacity: 0.92;
 }
 
 .project .links-inline a {
@@ -208,14 +208,15 @@ ul.interests li {
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-soft);
+  color: var(--white);
   text-decoration: none;
   margin-right: 1.25rem;
-  transition: color 0.25s ease;
+  opacity: 0.88;
+  transition: opacity 0.25s ease;
 }
 
 .project .links-inline a:hover {
-  color: #fff;
+  opacity: 1;
 }
 
 footer {
@@ -224,7 +225,8 @@ footer {
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-faint);
+  color: var(--white);
+  opacity: 0.55;
 }
 
 @media (max-width: 480px) {
